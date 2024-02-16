@@ -11,14 +11,17 @@ model = Xtts.init_from_config(config)
 model.load_checkpoint(config, checkpoint_dir="./model")
 model.cuda()
 
-def tts(text, audio="./wavs/input.wav"):
+def tts(text, temperature=0.3, length_penalty=1, repetition_penalty=2.0, speed=1.0, audio="./wavs/input.wav",):
     gpt_cond_latent, speaker_embedding = model.get_conditioning_latents(audio_path=[audio])
 
     out = model.inference(
     text,
     gpt_cond_latent=gpt_cond_latent,
     speaker_embedding=speaker_embedding,
-    temperature=0.3, # Add custom parameters here
+    temperature=temperature, # Add custom parameters here
     language="ko",
+    length_penalty=length_penalty,
+    repetition_penalty=repetition_penalty,
+    speed=speed
 )
     return torchaudio.save("./wavs/output.wav", torch.tensor(out["wav"]).unsqueeze(0), 24000)
