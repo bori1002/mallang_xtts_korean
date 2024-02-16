@@ -8,4 +8,4 @@ data : 감성 및 발화스타일 동시 고려 음성합성 데이터
 
 ---
 # streamlit 데모
-![demo](https://github.com/pincesslucy/mallang_xtts_korean/assets/98650288/1a4dbc8d-80ce-4d9d-be95-0771e720cefd)
+![demo](https://github.com/pincesslucy/mallang_xtts_korean/assets/98650288/d567d0af-b183-4edc-936f-adcee1dff418)
