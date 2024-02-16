@@ -13,16 +13,18 @@ file_upload = st.checkbox("오디오 파일 업로드(mp3, wav)")
 if not file_upload :
     wav_audio_data = st_audiorec()
     if wav_audio_data is not None:
-        with open('./wavs/input.wav', 'wb') as f:
-                f.write(wav_audio_data)
+        with st.spinner('녹음된 음성을 저장중...'):
+            with open('./wavs/input.wav', 'wb') as f:
+                    f.write(wav_audio_data)
 else:
     wav_audio_data = st.file_uploader("Upload audio", type=['wav'])
     if wav_audio_data is not None:
         st.audio(wav_audio_data, format='audio/wav')
         # 오디오 저장
-        with open('./wavs/input.wav', 'wb') as f:
-            f.write(wav_audio_data.read())
-        
+        with st.spinner('업로드된 음성을 저장중...'):
+            with open('./wavs/input.wav', 'wb') as f:
+                f.write(wav_audio_data.read())
+            
 st.header("재생시킬 텍스트 입력")
 st.write("읽히고 싶은 텍스트를 입력해주세요.")
 
@@ -35,7 +37,9 @@ speed=st.slider("Speed(The speed rate of the generated audio. Defaults to 1.0. (
 
 if st.button("변환"):
     if wav_audio_data is not None and text is not None:
-        tts(text, temperature, length_penalty, repetition_penalty, speed)
-        st.audio("./wavs/output.wav", format='audio/wav')
+        with st.spinner('음성 변환중...'):
+            tts(text, temperature, length_penalty, repetition_penalty, speed)
+            st.audio("./wavs/output.wav", format='audio/wav')
+        st.success('완료')
     else:
         st.write("음성 파일과 텍스트를 모두 입력해주세요.")
