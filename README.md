@@ -50,7 +50,7 @@ class VoiceBpeTokenizer:
   ```
 
 - fomatter 수정:
-  C:\Users\anton\anaconda3\envs\xtts\lib\site-packages\TTS\tts\datasets\formatters.py 에서
+  xtts\lib\site-packages\TTS\tts\datasets\formatters.py 에서
   ```python
   def ljspeech(root_path, meta_file, **kwargs):  # pylint: disable=unused-argument
     """Normalizes the LJSpeech meta data file to TTS format
