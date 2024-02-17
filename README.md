@@ -8,8 +8,12 @@ data : 감성 및 발화스타일 동시 고려 음성합성 데이터
 
 ---
 # Usage
+
+```bash
 pip install requirements.txt
 streamlit run app.py
+```
+
 ---
 # streamlit 데모
 ![demo](https://github.com/pincesslucy/mallang_xtts_korean/assets/98650288/d567d0af-b183-4edc-936f-adcee1dff418)
