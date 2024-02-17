@@ -31,7 +31,7 @@ st.write("읽히고 싶은 텍스트를 입력해주세요.")
 text = st.text_area("텍스트 입력", "하느님 저희를 구해주시려면 새 동아줄을 내려주시고, 그렇지 않으면 썩은 동아줄을 내려주세요.")
 
 temperature = st.slider("Temperature(The softmax temperature of the autoregressive model. Defaults to 0.65.)", value=0.3, min_value=0.0, max_value=1.0, step=0.01)
-length_penalty=st.slider("Length Penalty(A length penalty applied to the autoregressive decoder. Higher settings causes the model to produce more terse outputs. Defaults to 1.0.)", value=1.0, min_value=0.0, max_value=2.0, step=0.01)
+length_penalty=st.slider("Length Penalty(A length penalty applied to the autoregressive decoder. Higher settings causes the model to produce more terse outputs. Defaults to 1.0.)", value=1.0, min_value=0.0, max_value=10.0, step=0.01)
 repetition_penalty=st.slider("Repetition Penalty(A penalty that prevents the autoregressive decoder from repeating itself during decoding. Can be used to reduce the incidence of long silences or “uhhhhhhs”, etc. Defaults to 2.0.)", value=2.0, min_value=0.01, max_value=10.0, step=0.01)
 speed=st.slider("Speed(The speed rate of the generated audio. Defaults to 1.0. (can produce artifacts if far from 1.0))", value=1.0, min_value=0.01, max_value=10.0, step=0.01)
 
